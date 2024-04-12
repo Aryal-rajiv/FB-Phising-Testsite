@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        // Function to load content from index.php into the div with id 'content'
+        function loadContent() {
+            fetch('index.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading content:', error);
+                });
+        }
+
+        // Call the loadContent function when the page loads
+        window.onload = loadContent;
+    </script>
+</body>
+</html>
